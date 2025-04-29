@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS_ID = 'jagadhish3-docker'
-        DOCKERHUB_USERNAME = 'jagadhish3'
-        IMAGE_NAME = 'movie-recommender'
-        GITHUB_REPO_URL = 'https://github.com/Jagadhish3/Movies.git'
+        DOCKERHUB_CREDENTIALS_ID = 'dockerhub'
+        DOCKERHUB_USERNAME = 'praveenkumar949'
+        IMAGE_NAME = 'image-classifier'
+        GITHUB_REPO_URL = 'https://github.com/praveenkumar949/Devops_Project.git'
     }
 
     stages {
@@ -36,10 +36,10 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-                bat 'docker stop movie-app || echo Container not running'
-                bat 'docker rm movie-app || echo Container not found'
-                bat 'docker pull jagadhish3/movie-recommender:latest'
-                bat 'docker run -d -p 5000:5000 --name movie-app jagadhish3/movie-recommender:latest'
+                bat 'docker stop devops-proj || echo Container not running'
+                bat 'docker rm devops-proj || echo Container not found'
+                bat 'docker pull praveenkumar949/image-classifier:latest'
+                bat 'docker run -d -p 5000:5000 --name devops-proj praveenkumar949/image-classifier:latest'
             }
         }
     }
